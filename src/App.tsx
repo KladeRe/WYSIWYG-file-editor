@@ -1,26 +1,26 @@
-import { useRef, useEffect, type JSX } from 'react'
-import './App.css'
-import { RENDERED_HTML } from './FileView'
+import { type JSX, useEffect, useRef } from "react";
+import "./App.css";
+import { RENDERED_HTML } from "./FileView";
 
 const App = (): JSX.Element => {
-	const editorRef = useRef<HTMLDivElement | null>(null)
+	const editorRef = useRef<HTMLDivElement | null>(null);
 
 	// Attach shadow root and inject rendered HTML when the component mounts
 	useEffect(() => {
-		const host = editorRef.current
-		if (!host) return
+		const host = editorRef.current;
+		if (!host) return;
 
-		let root = host.shadowRoot as ShadowRoot | null
+		let root = host.shadowRoot as ShadowRoot | null;
 		if (!root) {
-			root = host.attachShadow({ mode: 'open' })
+			root = host.attachShadow({ mode: "open" });
 		}
 
-		root.innerHTML = RENDERED_HTML
+		root.innerHTML = RENDERED_HTML;
 
 		return () => {
-			if (root) root.innerHTML = ''
-		}
-	}, [])
+			if (root) root.innerHTML = "";
+		};
+	}, []);
 
 	return (
 		<div className="app-root">
@@ -30,9 +30,7 @@ const App = (): JSX.Element => {
 						<div ref={editorRef} className="paper editor" />
 
 						{/* Attach a Shadow DOM to the `.paper.editor` host and inject the rendered document. */}
-						{
-							/* Use an effect to perform DOM attachment once the host is mounted. */
-						}
+						{/* Use an effect to perform DOM attachment once the host is mounted. */}
 					</div>
 				</div>
 
@@ -52,10 +50,7 @@ const App = (): JSX.Element => {
 				</div>
 			</main>
 		</div>
-	)
-}
+	);
+};
 
-
-
-export default App
-
+export default App;

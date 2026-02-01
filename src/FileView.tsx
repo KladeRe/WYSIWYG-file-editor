@@ -9,7 +9,7 @@ const htmlSample = `<!doctype html>
     <h1>Hello World</h1>
     <p>This is a sample HTML file.</p>
   </body>
-</html>`
+</html>`;
 
 const cssSample = `body {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -23,12 +23,11 @@ h1 {
 }
 
 p { line-height: 1.4 }
-`
+`;
 
 // Export rendered HTML (body-only) combined with CSS so it can be injected
 export const RENDERED_HTML = (() => {
-  const bodyMatch = htmlSample.match(/<body[^>]*>([\s\S]*)<\/body>/i)
-  const body = bodyMatch ? bodyMatch[1] : htmlSample
-  return `<style>${cssSample}</style>${body}`
-})()
-
+	const bodyMatch = htmlSample.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+	const body = bodyMatch ? bodyMatch[1] : htmlSample;
+	return `<style>${cssSample}</style>${body}`;
+})();
