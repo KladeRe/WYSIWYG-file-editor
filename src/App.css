@@ -1,8 +1,12 @@
 #root {
 	max-width: 1280px;
 	margin: 0 auto;
-	padding: 2rem;
 	text-align: center;
+}
+
+body {
+	margin: 0;
+	padding: 0;
 }
 
 .logo {
@@ -86,7 +90,7 @@
 .content {
 	display: flex;
 	gap: 1rem;
-	height: calc(100vh - 64px);
+	height: 100vh;
 	box-sizing: border-box;
 	align-items: center;
 }
@@ -100,31 +104,38 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.5rem;
+	height: 100%;
 }
 
 .paper-wrap {
-	padding: 0.75rem;
-}
-
-.paper {
+	display: block;
 	background: #fff;
 	border: 1px solid #ddd;
 	border-radius: 6px;
 	box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
-	padding: 1.25rem;
 	box-sizing: border-box;
 	width: auto;
 	max-width: 100%;
-	height: calc(100vh - 64px - 2rem);
+	padding: 0.5rem;
+	height: calc(100vh - 64px - 4rem);
 	aspect-ratio: 210 / 297; /* A4: width / height */
+	overflow: hidden;
+}
+
+.paper {
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	box-sizing: border-box;
+	width: auto;
+	height: 100%;
+	max-width: none;
 	overflow: auto;
 }
 
 .paper:focus {
 	outline: none;
-	box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.06);
-	border-color: #60a5fa;
 }
 
 .right-column {
